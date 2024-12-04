@@ -2,14 +2,19 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Robot myRobot = new Robot("Robo", "orange", 65);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Display robot information
+        myRobot.displayInfo();
+
+        // Move and recharge as before
+        myRobot.move(20);
+        System.out.println("Battery level: " + myRobot.getBatteryLevel());
+
+        myRobot.move(85); // This should show insufficient battery if over limit
+        System.out.println("Battery level: " + myRobot.getBatteryLevel());
+
+        myRobot.recharge();
+        System.out.println("Battery level after recharge: " + myRobot.getBatteryLevel());
     }
 }
